@@ -41,15 +41,14 @@ final scoreboard = ChatCommand('scoreboard', 'Get the current scoreboard', (
           content: 'Scoreboard: $currentBoyzScore:$currentAbbyScore',
         ),
       );
-    } else if ((!allowedUsers.contains(context.user.id)) &&
-        (person != null || score != null)) {
-      await context.respond(
-        MessageBuilder(
-          content: "You aren't permitted to change the scoreboard.",
-        ),
-      );
     }
+  } else if ((!allowedUsers.contains(context.user.id)) &&
+      (person != null || score != null)) {
+    await context.respond(
+      MessageBuilder(content: "You aren't permitted to change the scoreboard."),
+    );
   }
+
   if ((person != 'boyz') && (person != 'abby')) {
     await context.respond(
       MessageBuilder(
