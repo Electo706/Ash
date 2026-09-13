@@ -1,5 +1,9 @@
 import 'package:ash__dart/token.dart';
-import 'package:ash__dart/commands.dart';
+import 'package:ash__dart/commands/scoreboard.dart';
+import 'package:ash__dart/commands/gifs.dart';
+import 'package:ash__dart/commands/ping.dart';
+import 'package:ash__dart/commands/prefix.dart';
+import 'package:ash__dart/commands/shutdown.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
@@ -22,6 +26,7 @@ void main() async {
   commands.addCommand(albuquerquenewmexico);
   commands.addCommand(prefix);
   commands.addCommand(scoreboard);
+  commands.addCommand(kys);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),

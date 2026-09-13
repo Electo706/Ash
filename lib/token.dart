@@ -5,3 +5,10 @@ String getBotToken() {
     ..load())["TOKEN"]!;
   return botToken;
 }
+
+int getOwnerId() {
+  int ownerId = int.parse(
+    (DotEnv(includePlatformEnvironment: true)..load())["OWNER_ID"]!,
+  );
+  return ownerId;
+}
