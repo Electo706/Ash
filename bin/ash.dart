@@ -4,11 +4,24 @@ import 'package:ash__dart/commands.dart';
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
 
-void main() async {
-  final commands = CommandsPlugin(prefix: mentionOr((_) => curPrefix));
+import 'dart:io';
 
+void main() async {
+  File prefixFile = File(
+    '/Users/bradyhusong/Documents/Programming Work/Ash-Dart/lib/prefix.txt',
+  );
+
+  final commands = CommandsPlugin(
+    prefix: mentionOr((_) async {
+      // Reads the updated content from disk on every command check
+      final content = await prefixFile.readAsString();
+      return content.trim();
+    }),
+  );
   commands.addCommand(ping);
   commands.addCommand(albuquerquenewmexico);
+  commands.addCommand(prefix);
+  commands.addCommand(scoreboard);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),
