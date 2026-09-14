@@ -1,3 +1,4 @@
+import 'package:ash__dart/token.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
 import 'package:nyxx/nyxx.dart';
 
@@ -11,9 +12,15 @@ final prefix = ChatCommand('prefix', 'Set the bot\'s command prefix', (
   ChatContext context,
   String newPrefix,
 ) async {
-  prefixFile.writeAsStringSync(newPrefix);
+  if (context.user.id == Snowflake(getOwnerId())) {
+    prefixFile.writeAsStringSync(newPrefix);
 
-  await context.respond(
-    MessageBuilder(content: 'Prefix updated to: $newPrefix'),
-  );
+    await context.respond(
+      MessageBuilder(content: 'Prefix updated to: $newPrefix'),
+    );
+  } else {
+    await context.respond(
+      MessageBuilder(content: "You are not permitted to use this command"),
+    );
+  }
 });
