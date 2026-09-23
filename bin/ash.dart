@@ -11,6 +11,7 @@ import 'package:nyxx_commands/nyxx_commands.dart';
 import 'dart:io';
 
 void main() async {
+  Snowflake Fred = Snowflake(974297735559806986);
   File prefixFile = File(
     '/Users/bradyhusong/Documents/Programming Work/Ash-Dart/lib/prefix.txt',
   );
@@ -27,6 +28,8 @@ void main() async {
   commands.addCommand(prefix);
   commands.addCommand(scoreboard);
   commands.addCommand(kys);
+  commands.addCommand(dih);
+  commands.addCommand(peak);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),
@@ -37,7 +40,10 @@ void main() async {
   final botUser = await client.user.get();
 
   client.onMessageCreate.listen((event) async {
-    if (event.message.author.id == botUser.id) return;
+    if (event.message.author.id == botUser.id &&
+        event.message.author.id != Fred) {
+      return;
+    }
     if (event.message.author is User && (event.message.author as User).isBot) {
       return;
     }
