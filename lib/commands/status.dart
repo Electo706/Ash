@@ -16,7 +16,6 @@ final ChatCommand status = ChatCommand('status', 'Get the Bot\'s PC info', (
   var kernelVersion = SysInfo.kernelVersion;
   var cpuName = SysInfo.cores[0].name;
   var cpuCores = SysInfo.cores.length;
-  var cpuSocket = SysInfo.cores[0].socket;
   var totalMemory = (SysInfo.getTotalPhysicalMemory());
   var freeMemory = (SysInfo.getFreePhysicalMemory());
   var usedMemory = totalMemory - freeMemory;
@@ -30,7 +29,7 @@ final ChatCommand status = ChatCommand('status', 'Get the Bot\'s PC info', (
           '```'
           'OS: $OS $OSVersion\n'
           'Kernel: $kernelType $kernelVersion\n'
-          'CPU: $cpuName ($cpuCores cores, $cpuSocket socket)\n'
+          'CPU: $cpuName ($cpuCores cores)\n'
           'Memory: ${(usedMemory / gibibyte).toStringAsFixed(2)} GiB / '
           '${(totalMemory / gibibyte).toStringAsFixed(2)} GiB\n'
           //'Battery: $batteryLevel% ($batteryState)\n'
