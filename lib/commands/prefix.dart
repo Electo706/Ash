@@ -4,9 +4,7 @@ import 'package:nyxx/nyxx.dart';
 
 import 'dart:io';
 
-File prefixFile = File(
-  '/Users/bradyhusong/Documents/Programming Work/Ash-Dart/lib/prefix.txt',
-);
+File prefixFile = File('lib/prefix.txt');
 
 final prefix = ChatCommand('prefix', 'Set the bot\'s command prefix', (
   ChatContext context,

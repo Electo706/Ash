@@ -10,17 +10,17 @@ final albuquerquenewmexico = ChatCommand(
 
     await context.respond(MessageBuilder(content: gif));
   },
-);
+); //albuquerque new mexico gif
 
 final dih = ChatCommand('dih', 'dih', (ChatContext context) async {
   var gif = 'https://klipy.com/gifs/hopindih';
   await context.respond(MessageBuilder(content: gif));
-});
+}); //hoppin dih gif
 
 final peak = ChatCommand('peak', 'peak gif', (ChatContext context) async {
   var gif = 'https://klipy.com/gifs/patrick-patrick-star-54';
   await context.respond(MessageBuilder(content: gif));
-});
+}); //peak command
 
 final bootyshake = ChatCommand(
   'bootyshake',
@@ -32,4 +32,4 @@ final bootyshake = ChatCommand(
 
     await context.respond(MessageBuilder(content: gif));
   },
-);
+); //bootyshake command
