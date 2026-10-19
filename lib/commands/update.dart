@@ -81,7 +81,7 @@ final update = ChatCommand(
       }
 
       // Install/update Dart dependencies.
-      result = await _run('/usr/bin/dart', ['pub', 'get']);
+      result = await _run('~/dev/flutter', ['pub', 'get']);
 
       if (result.exitCode != 0) {
         await context.respond(
