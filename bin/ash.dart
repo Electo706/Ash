@@ -57,7 +57,7 @@ void main() async {
     if (wasMentioned) {
       await event.message.channel.sendMessage(
         MessageBuilder(
-          content: "Wsg Shawty 😏!",
+          content: "Wsg Shawty 😏",
           referencedMessage: .reply(messageId: event.message.id),
         ),
       );
