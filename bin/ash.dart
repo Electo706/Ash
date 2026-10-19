@@ -12,9 +12,7 @@ import 'dart:io';
 
 void main() async {
   Snowflake Fred = Snowflake(974297735559806986);
-  File prefixFile = File(
-    'lib/prefix.txt',
-  );
+  File prefixFile = File('lib/prefix.txt');
 
   final commands = CommandsPlugin(
     prefix: mentionOr((_) async {
@@ -26,7 +24,7 @@ void main() async {
   commands.addCommand(ping);
   commands.addCommand(albuquerquenewmexico);
   commands.addCommand(prefix);
-//  commands.addCommand(scoreboard);
+  //  commands.addCommand(scoreboard);
   commands.addCommand(kys);
   commands.addCommand(dih);
   commands.addCommand(peak);
