@@ -4,6 +4,7 @@ import 'package:ash__dart/commands/gifs.dart';
 import 'package:ash__dart/commands/ping.dart';
 import 'package:ash__dart/commands/prefix.dart';
 import 'package:ash__dart/commands/shutdown.dart';
+import 'package:ash__dart/commands/update.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
