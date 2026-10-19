@@ -25,9 +25,7 @@ final update = ChatCommand(
     // Only the configured bot owner can update the server.
     if (context.user.id != Snowflake(getOwnerId())) {
       await context.respond(
-        MessageBuilder(
-          content: 'You do not have permission to use this command.',
-        ),
+        MessageBuilder(content: 'You\'re not my twin, gng ✌️🥀 '),
       );
       return;
     }

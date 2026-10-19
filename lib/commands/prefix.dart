@@ -18,7 +18,7 @@ final prefix = ChatCommand('prefix', 'Set the bot\'s command prefix', (
     );
   } else {
     await context.respond(
-      MessageBuilder(content: "You are not permitted to use this command"),
+      MessageBuilder(content: 'You\'re not my twin, gng ✌️🥀 '),
     );
   }
 });

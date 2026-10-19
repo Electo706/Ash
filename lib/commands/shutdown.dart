@@ -7,9 +7,7 @@ final kys = ChatCommand('kys', 'Shuts down the bot', (
 ) async {
   if (context.user.id != Snowflake(getOwnerId())) {
     await context.respond(
-      MessageBuilder(
-        content: 'You do not have permission to use this command.',
-      ),
+      MessageBuilder(content: 'You\'re not my twin, gng ✌️🥀 '),
     );
     return;
   }
