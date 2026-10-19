@@ -29,6 +29,7 @@ void main() async {
   commands.addCommand(dih);
   commands.addCommand(peak);
   commands.addCommand(bootyshake);
+  commands.addCommand(update);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),
