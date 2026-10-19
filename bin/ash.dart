@@ -1,10 +1,10 @@
 import 'package:ash__dart/token.dart';
-import 'package:ash__dart/commands/scoreboard.dart';
 import 'package:ash__dart/commands/gifs.dart';
 import 'package:ash__dart/commands/ping.dart';
 import 'package:ash__dart/commands/prefix.dart';
 import 'package:ash__dart/commands/shutdown.dart';
 import 'package:ash__dart/commands/update.dart';
+import 'package:ash__dart/commands/status.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
@@ -31,6 +31,7 @@ void main() async {
   commands.addCommand(peak);
   commands.addCommand(bootyshake);
   commands.addCommand(update);
+  commands.addCommand(status);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),

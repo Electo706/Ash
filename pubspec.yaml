@@ -12,6 +12,8 @@ dependencies:
   nyxx: ^6.9.1
   nyxx_commands: ^6.1.0
   path: ^1.9.0
+  system_info3: ^4.0.2
+  battery_plus: ^7.1.2
 
 dev_dependencies:
   lints: ^6.0.0
