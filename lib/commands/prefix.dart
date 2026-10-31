@@ -1,6 +1,7 @@
 import 'package:ash__dart/token.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
 import 'package:nyxx/nyxx.dart';
+import 'package:ash__dart/commands/dev.dart';
 
 import 'dart:io';
 
@@ -11,14 +12,18 @@ final prefix = ChatCommand('prefix', 'Set the bot\'s command prefix', (
   String newPrefix,
 ) async {
   if (context.user.id == Snowflake(getOwnerId())) {
-    prefixFile.writeAsStringSync(newPrefix);
+    final activePrefix = dev ? '${newPrefix}d' : newPrefix;
+
+    prefixFile.writeAsStringSync(activePrefix);
 
     await context.respond(
-      MessageBuilder(content: 'Prefix updated to: $newPrefix'),
+      MessageBuilder(
+        content: '${dev ? "DevPrefix" : "Prefix"} updated to: $activePrefix',
+      ),
     );
   } else {
     await context.respond(
-      MessageBuilder(content: 'You\'re not my twin, gng ✌️🥀 '),
+      MessageBuilder(content: 'You\'re not my twin, gng ✌️🥀'),
     );
   }
-});
+}); // ChatCommand;
