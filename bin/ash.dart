@@ -7,6 +7,8 @@ import 'package:ash__dart/commands/update.dart';
 import 'package:ash__dart/commands/status.dart';
 import 'package:ash__dart/commands/ai.dart';
 import 'package:ash__dart/commands/lookup.dart';
+import 'package:ash__dart/lockdown_service.dart';
+import 'package:ash__dart/commands/lockdown.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
@@ -14,6 +16,7 @@ import 'package:nyxx_commands/nyxx_commands.dart';
 import 'dart:io';
 
 void main() async {
+  await LockdownService.load();
   Snowflake Fred = Snowflake(974297735559806986);
   File prefixFile = File('lib/prefix.txt');
 
@@ -23,6 +26,14 @@ void main() async {
       final content = await prefixFile.readAsString();
       return content.trim();
     }),
+  );
+
+  commands.check(
+    Check((context) {
+      if (!LockdownService.enabled) return true;
+
+      return context.user.id == Snowflake(getOwnerId());
+    }, name: 'Lockdown'),
   );
   commands.addCommand(ping);
   commands.addCommand(albuquerquenewmexico);
@@ -36,6 +47,18 @@ void main() async {
   commands.addCommand(status);
   commands.addCommand(ai);
   commands.addCommand(lookup);
+  commands.addCommand(lockdown);
+
+  commands.onCommandError.listen((error) async {
+    if (error is CheckFailedException && error.failed.name == 'Lockdown') {
+      await error.context.respond(
+        MessageBuilder(
+          content:
+              'Ash is currently in lockdown. Only the owner can use commands.',
+        ),
+      );
+    }
+  });
 
   final client = await Nyxx.connectGateway(
     getBotToken(),
