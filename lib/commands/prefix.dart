@@ -12,7 +12,7 @@ final prefix = ChatCommand('prefix', 'Set the bot\'s command prefix', (
   String newPrefix,
 ) async {
   if (context.user.id == Snowflake(getOwnerId())) {
-    final activePrefix = dev ? '${newPrefix}d' : newPrefix;
+    final activePrefix = dev == true ? '${newPrefix}d' : newPrefix;
 
     prefixFile.writeAsStringSync(activePrefix);
 
