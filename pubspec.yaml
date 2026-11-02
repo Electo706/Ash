@@ -9,6 +9,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   dotenv: ^4.2.0
+  http: ^1.6.0
   nyxx: ^6.9.1
   nyxx_commands: ^6.1.0
   path: ^1.9.0

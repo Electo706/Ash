@@ -5,6 +5,8 @@ import 'package:ash__dart/commands/prefix.dart';
 import 'package:ash__dart/commands/shutdown.dart';
 import 'package:ash__dart/commands/update.dart';
 import 'package:ash__dart/commands/status.dart';
+import 'package:ash__dart/commands/ai.dart';
+import 'package:ash__dart/commands/lookup.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
@@ -32,6 +34,8 @@ void main() async {
   commands.addCommand(bootyshake);
   commands.addCommand(update);
   commands.addCommand(status);
+  commands.addCommand(ai);
+  commands.addCommand(lookup);
 
   final client = await Nyxx.connectGateway(
     getBotToken(),
