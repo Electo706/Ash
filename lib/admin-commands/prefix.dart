@@ -1,7 +1,7 @@
 import 'package:ash__dart/token.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
 import 'package:nyxx/nyxx.dart';
-import 'package:ash__dart/commands/dev.dart';
+import 'package:ash__dart/dev.dart';
 
 import 'dart:io';
 

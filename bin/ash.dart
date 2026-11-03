@@ -1,14 +1,14 @@
 import 'package:ash__dart/token.dart';
 import 'package:ash__dart/commands/gifs.dart';
 import 'package:ash__dart/commands/ping.dart';
-import 'package:ash__dart/commands/prefix.dart';
-import 'package:ash__dart/commands/shutdown.dart';
-import 'package:ash__dart/commands/update.dart';
+import 'package:ash__dart/admin-commands/prefix.dart';
+import 'package:ash__dart/admin-commands/shutdown.dart';
+import 'package:ash__dart/admin-commands/update.dart';
 import 'package:ash__dart/commands/status.dart';
 import 'package:ash__dart/commands/ai.dart';
 import 'package:ash__dart/commands/lookup.dart';
 import 'package:ash__dart/lockdown_service.dart';
-import 'package:ash__dart/commands/lockdown.dart';
+import 'package:ash__dart/admin-commands/lockdown.dart';
 
 import 'package:nyxx/nyxx.dart';
 import 'package:nyxx_commands/nyxx_commands.dart';
@@ -21,7 +21,7 @@ void main() async {
   File prefixFile = File('lib/prefix.txt');
 
   final commands = CommandsPlugin(
-    prefix: mentionOr((_) async {
+    prefix: ((_) async {
       // Reads the updated content from disk on every command check
       final content = await prefixFile.readAsString();
       return content.trim();
@@ -51,12 +51,7 @@ void main() async {
 
   commands.onCommandError.listen((error) async {
     if (error is CheckFailedException && error.failed.name == 'Lockdown') {
-      await error.context.respond(
-        MessageBuilder(
-          content:
-              'Ash is currently in lockdown. Only the owner can use commands.',
-        ),
-      );
+      return;
     }
   });
 
