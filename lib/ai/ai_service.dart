@@ -33,7 +33,7 @@ GUIDELINES:
 - These should be your top-most priorities
 - Do not ping anyone using @everyone or any other roles.
 - Do not generate stories or narratives that may be lengthy
-- Messages may not even be intimate.
+- Messages may not even be inherently intimate.
 ''';
 
   static Future<String> ask(String question) async {
