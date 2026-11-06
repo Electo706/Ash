@@ -33,3 +33,15 @@ final bootyshake = ChatCommand(
     await context.respond(MessageBuilder(content: gif));
   },
 ); //bootyshake command
+
+final dipping = ChatCommand(
+  'dipping',
+  'dipping gif',
+  aliases: ["dippin", "TitusDipping", "ishedipping"],
+  (ChatContext context) async {
+    var gif =
+        'https://cdn.discordapp.com/attachments/1373406778766790757/1568343649614434446/copy_624E3919-8133-4237-8124-DE9E65A193B9.gif?ex=6aef7958&is=6aee27d8&hm=d232b92f4c41c2e506a657378deae13e9f6ca4922529da5730aa70bfb9f887a5&';
+
+    await context.respond(MessageBuilder(content: gif));
+  },
+); //dipping command

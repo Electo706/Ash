@@ -48,6 +48,7 @@ void main() async {
   commands.addCommand(ai);
   commands.addCommand(lookup);
   commands.addCommand(lockdown);
+  commands.addCommand(dipping);
 
   commands.onCommandError.listen((error) async {
     if (error is CheckFailedException && error.failed.name == 'Lockdown') {
